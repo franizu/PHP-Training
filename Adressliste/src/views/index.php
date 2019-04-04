@@ -23,7 +23,7 @@ if (isset($_POST['senden'])){
     $a_adresse = $_POST;
     $o_addressRepository -> insertAddress($a_adresse); // Einfügen einer neuen Adresse in Dantenbanktabelle
 }
-if(isset($_POST['löschen'])){
+if (isset($_POST['löschen'])){
     $address_id = $_POST['löschen'];
     $o_addressRepository->deleteAddress($address_id);
 }
@@ -35,6 +35,16 @@ if (isset($_POST['speichern'])){
 
 }
 $o_adressen = $o_addressRepository->fetchAll(); // Abrufen der Adressdaten aus Datenbanktabelle
+
+function cmp($o_address_a, $o_address_b)
+{
+    return strcasecmp($o_address_a->vorname, $o_address_b->vorname);
+}
+
+usort($o_adressen, "cmp");
+
+
+
 
 
 output_header(); // Funktion erzeugt einen Header

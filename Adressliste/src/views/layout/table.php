@@ -32,9 +32,11 @@ function output_table($o_adressen,$edit_id){
     echo get_table_body_fragment('strasse',$adresse->strasse,$edit_id,$adresse->id);
     echo get_table_body_fragment('plz',$adresse->plz,$edit_id,$adresse->id);
     echo get_table_body_fragment('ort',$adresse->ort,$edit_id,$adresse->id);
-    echo "<td><button type=\"submit\" name='löschen' value='$adresse->id'>Löschen</button></td>";
-    echo "<td><button type=\"submit\" name='bearbeiten' value='$adresse->id'>Bearbeiten</button></td>";
-    echo "<td><button type=\"submit\" name='speichern' value='$adresse->id'>Speichern</button></td>";
+
+    echo get_button('Löschen','löschen',$edit_id,$adresse->id);
+    echo get_button('Bearbeiten','bearbeiten',$edit_id,$adresse->id);
+    echo get_button('Speichern','speichern',$edit_id,$adresse->id);
+
     echo "</tr>";
   }
 
@@ -64,5 +66,13 @@ function get_table_body_fragment($title,$addressdata,$edit_id,$address_id){
   return $str_fragment;
 }
 
+function get_button($title,$name,$edit_id,$address_id){
+  if ($edit_id != $address_id AND $name == 'speichern') {
+    $str_button = "<td><button type=\"submit\" name='$name' value='$address_id' disabled>$title </button></td>";
+  }else {
+    $str_button = "<td><button type=\"submit\" name='$name' value='$address_id' >$title </button></td>";
+  }
+  return $str_button;
+}
 
  ?>
