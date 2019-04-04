@@ -13,14 +13,14 @@ function output_form($method,$action){
   *   Ergebnis: HTML-Formular
   */
   echo "<br /><br />";
-  echo "<form method={$method} action={$action}>" ;
+  echo "<form name='adresseingabe' method='$method' action='$action'>" ;
   echo get_form_fragment('Vorname','vorname');
   echo get_form_fragment('Nachname','nachname');
-  echo get_form_fragment('Straße/Hausnummer','straße');
+  echo get_form_fragment('Straße/Hausnummer','strasse');
   echo get_form_fragment('Postleitzahl','plz');
   echo get_form_fragment('Ort','ort');
   echo "<br />\n";
-  echo "<button type='submit'>Eingaben absenden</button>\n";
+  echo "<button name='senden' type='submit'>Eingaben absenden</button>\n";
   echo "</form";
 }
 function get_form_fragment($title,$name){

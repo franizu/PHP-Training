@@ -12,11 +12,13 @@ use PDO;
 
 
 
-class AddressRepository {
+class AddressRepository
+{
 
   private $o_pdo;
 
-  public function __construct(PDO $o_pdo){
+  public function __construct(PDO $o_pdo)
+  {
 
     $this->o_pdo = $o_pdo;
   }
@@ -25,10 +27,11 @@ class AddressRepository {
   *   Parameter: keine
   *   Ergebnis: Objekt mit Adressdaten
   */
-  public function fetchAll(){
+  public function fetchAll()
+  {
     $stmt = $this->o_pdo->prepare("SELECT * FROM `adressen`");
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_CLASS,"Model\\AddressModel");
+    $stmt->setFetchMode(PDO::FETCH_CLASS, "Model\\AddressModel");
     $o_adressen = $stmt->fetchAll(PDO::FETCH_CLASS);
 
     return $o_adressen;
@@ -40,29 +43,35 @@ class AddressRepository {
   *   Parameter: keine
   *   Ergebnis: keine
   */
-  public function insertAddress(){
+  public function insertAddress($a_adresse)
+  {
 
     $stmt = $this->o_pdo->prepare(
-      "INSERT INTO `adressen` (`id`, `vorname`, `nachname`, `strasse`, `plz`, `ort`) VALUES (:id, :vorname, :nachname, :strasse, :plz, :ort)"
+        "INSERT INTO `adressen` (`id`, `vorname`, `nachname`, `strasse`, `plz`, `ort`) VALUES (:id, :vorname, :nachname, :strasse, :plz, :ort)"
     );
     // Adressdaten in Datenbanktabelle einfügen
     $stmt->execute([
-      'id' => NULL,
-      'vorname' => $_POST['vorname'],
-      'nachname' => $_POST['nachname'],
-      'strasse' => $_POST['straße'],
-      'plz' => $_POST['plz'],
-      'ort' => $_POST['ort']
+        'id' => NULL,
+        'vorname' => $a_adresse['vorname'],
+        'nachname' => $a_adresse['nachname'],
+        'strasse' => $a_adresse['strasse'],
+        'plz' => $a_adresse['plz'],
+        'ort' => $a_adresse['ort']
 
     ]);
   }
 
+  public function deleteAddress($address_id)
+  {
 
+    $stmt = $this->o_pdo->prepare("DELETE FROM `adressen` WHERE `adressen`.`id` = '$address_id'");
+    $stmt->execute();
 
+  }
+
+  public function  updateAddress($address_id,$a_adresse){
+    $stmt = $this->o_pdo->prepare("UPDATE `adressen` SET `vorname` = \"{$a_adresse['vorname']}\", `nachname` = \"{$a_adresse['nachname']}\", `strasse` = \"{$a_adresse['strasse']}\", `plz` = \"{$a_adresse['plz']}\", `ort` = \"{$a_adresse['ort']}\" WHERE `adressen`.`id` = '$address_id'");
+    $stmt->execute();
+  }
 }
-
-
-
-
-
  ?>
