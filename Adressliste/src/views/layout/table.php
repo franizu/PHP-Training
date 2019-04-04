@@ -5,12 +5,11 @@
 * Funktion: Erzeugung einer Tabelle mit Adressdaten
 */
 
-function output_table($o_adressen){
-
-  /*  Funktion: Erzeugung einer Tabelle mit Adressdaten
+/*  Funktion: Erzeugung einer HTML-Tabelle mit Adressdaten
   *   Parameter: $o_adressen - Adressdaten von Datenbanktabelle(Objekt)
   *   Ergebnis: HTML-Tabelle
   */
+function output_table($o_adressen){
 
   echo "<br/><br/>";
   echo "<form id = 'table'>";
@@ -37,21 +36,23 @@ function output_table($o_adressen){
   echo "</body></table></form>";
 }
 
-function get_table_head_fragment($title){
 /*  Funktion: HTML-Fragment zur Erzeugung eines Tabellenkopfes
 *   Parameter: $title(string) - Titel der Tabellenspalte
 *   Ergebnis: HTML-Fragment(string)
 */
-  $str_fragment = " <th><input value={$title} readonly></th>";
+function get_table_head_fragment($title){
+
+  $str_fragment = " <th><input value=\"$title\" readonly></th>";
   return $str_fragment;
 }
 
-function get_table_body_fragment($value){
-  /*  Funktion: HTML-Fragment zur Erzeugung eines Tabellenzelle
-  *   Parameter: $value(string) - Adressdaten
-  *   Ergebnis: HTML-Fragment(string)
-  */
-  $str_fragment = "<td><input type = 'text' value={$value} readonly ></td>";
+/*  Funktion: HTML-Fragment zur Erzeugung eines Tabellenzelle
+*   Parameter: $value(string) - Adressdaten
+*   Ergebnis: HTML-Fragment(string)
+*/
+function get_table_body_fragment($addressdata){
+
+  $str_fragment = "<td><input type = 'text' value=\"$addressdata\" readonly ></td>";
   return $str_fragment;
 }
 

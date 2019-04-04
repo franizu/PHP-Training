@@ -1,4 +1,9 @@
 <?php
+/* Dateiname: AddressModel.php
+* Autor: RS
+* PHP-Training: Erstellung einer Adressliste
+* Funktion: Erzeugung einer Klasse zur Speicherung von Addressdaten
+*/
 
 namespace Model;
 

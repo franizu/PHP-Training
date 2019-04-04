@@ -1,9 +1,15 @@
 <?php
+
+/* Dateiname: AddressRepository.php
+* Autor: RS
+* PHP-Training: Erstellung einer Adressliste
+* Funktion: Erzeugung einer Klasse zum Abrufen und Einfügen von Addressdaten aus/in Datenbanktabelle
+*/
+
 namespace Model;
 
 use PDO;
 
-//indclude __DIR__ . "/AddressModel.php";
 
 
 class AddressRepository {
@@ -15,6 +21,10 @@ class AddressRepository {
     $this->o_pdo = $o_pdo;
   }
 
+  /*  Funktion: Abruf von Adressdaten aus Datenbanktabelle und Speichern der Adressdaten in AddressModel
+  *   Parameter: keine
+  *   Ergebnis: Objekt mit Adressdaten
+  */
   public function fetchAll(){
     $stmt = $this->o_pdo->prepare("SELECT * FROM `adressen`");
     $stmt->execute();
@@ -26,6 +36,10 @@ class AddressRepository {
 
   }
 
+  /*  Funktion: Einfügen von Adressdaten in Datenbanktabelle
+  *   Parameter: keine
+  *   Ergebnis: keine
+  */
   public function insertAddress(){
 
     $stmt = $this->o_pdo->prepare(
