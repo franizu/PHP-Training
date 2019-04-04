@@ -9,34 +9,23 @@ include __DIR__ . "/layout/header.php";
 include __DIR__ . "/layout/footer.php";
 include __DIR__ . "/layout/form.php";
 include __DIR__ . "/layout/table.php";
-
-output_header(); // Funktion erzeugt einen Header
+include __DIR__ . "/../Model/AddressRepository.php";
 
 $o_pdo = new PDO(
     'mysql:host=localhost;dbname=adressliste;charset=utf8',
     'adressliste','U6MY6gd3dquwJHj2');
 
-  if (!empty($_POST)){
-    $stmt = $o_pdo->prepare(
-      "INSERT INTO `adressen` (`id`, `vorname`, `nachname`, `strasse`, `plz`, `ort`) VALUES (:id, :vorname, :nachname, :strasse, :plz, :ort)"
-    );
-    // Adressdaten in Datenbanktabelle einfügen
-    $stmt->execute([
-      'id' => NULL,
-      'vorname' => $_POST['vorname'],
-      'nachname' => $_POST['nachname'],
-      'strasse' => $_POST['straße'],
-      'plz' => $_POST['plz'],
-      'ort' => $_POST['ort']
 
-    ]);
-  }
+$o_addressRepository = new \Model\AddressRepository($o_pdo);
+if (!empty($_Post)){
+    $o_addressRepository -> insertAdress();
+}
 
-// Alle Adressdaten von Datenbank abrufen
+$o_adressen = $o_addressRepository->fetchAll();
 
-$adressen = $o_pdo->query("SELECT * FROM `adressen`");
+output_header(); // Funktion erzeugt einen Header
 
-output_table($adressen); // Erzeugung einer HTML-Tabelle mit Adressdaten
+output_table($o_adressen); // Erzeugung einer HTML-Tabelle mit Adressdaten
 
 output_form('POST',"index.php");  // Funktion erzeugt ein Formular zur Eingabe einer Adresse
 

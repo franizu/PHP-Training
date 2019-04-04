@@ -5,10 +5,10 @@
 * Funktion: Erzeugung einer Tabelle mit Adressdaten
 */
 
-function output_table($adressen){
+function output_table($o_adressen){
 
   /*  Funktion: Erzeugung einer Tabelle mit Adressdaten
-  *   Parameter: $adressen - Adressdaten von Datenbanktabelle
+  *   Parameter: $o_adressen - Adressdaten von Datenbanktabelle(Objekt)
   *   Ergebnis: HTML-Tabelle
   */
 
@@ -24,13 +24,13 @@ function output_table($adressen){
   echo "</tr></thead>";
 
   echo "<tbody";
-  foreach ($adressen as $adresse) {
+  foreach ($o_adressen as $adresse) {
     echo "<tr>";
-    echo get_table_body_fragment($adresse[1]);
-    echo get_table_body_fragment($adresse[2]);
-    echo get_table_body_fragment($adresse[3]);
-    echo get_table_body_fragment($adresse[4]);
-    echo get_table_body_fragment($adresse[5]);
+    echo get_table_body_fragment($adresse->vorname);
+    echo get_table_body_fragment($adresse->nachname);
+    echo get_table_body_fragment($adresse->strasse);
+    echo get_table_body_fragment($adresse->plz);
+    echo get_table_body_fragment($adresse->ort);
     echo "</tr>";
   }
 
