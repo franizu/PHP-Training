@@ -9,8 +9,22 @@ echo "<style>";
   echo "#content {";
     echo "float: left";
   echo "}";
-echo "</style>";
-echo "</head>";
 
-echo "<body>";
+  echo "div {";
+    echo "width: 90%";
+    echo "text-align: center";
+    echo "}";
+
+  echo "form {";
+  echo "width: 100%";
+  echo "text-align: center";
+  echo "}";
+
+  echo "#mapdiv {";
+  echo "width: 400px;";
+  echo "height: 400px;";
+  echo "}";
+echo "</style>";
+
  ?>
+

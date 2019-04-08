@@ -15,6 +15,8 @@ class AddressModel {
   public $strasse;
   public $plz;
   public $ort;
+  public $longitude;
+  public $latitude;
   
 }
 

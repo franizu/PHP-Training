@@ -17,6 +17,8 @@ class AddressRepository
 
   private $o_pdo;
 
+
+
   public function __construct(PDO $o_pdo)
   {
 
@@ -27,6 +29,31 @@ class AddressRepository
   *   Parameter: keine
   *   Ergebnis: Objekt mit Adressdaten
   */
+
+  public function transform_import_array($a_import_addresses){
+
+    $nr = count($a_import_addresses); //number of rows
+    for($i=2; $i<=$nr; $i++){
+      $a_address = $a_import_addresses[$i];
+      $a_keys = array_keys($a_address);
+      $a_address['vorname'] = $a_address[$a_keys[0]];
+      unset($a_address[$a_keys[0]]);
+      $a_address['nachname'] = $a_address[$a_keys[1]];
+      unset($a_address[$a_keys[1]]);
+      $a_address['strasse'] = $a_address[$a_keys[2]];
+      unset($a_address[$a_keys[2]]);
+      $a_address['plz'] = $a_address[$a_keys[3]];
+      unset($a_address[$a_keys[3]]);
+      $a_address['ort'] = $a_address[$a_keys[4]];
+      unset($a_address[$a_keys[4]]);
+
+      $a_import_addresses[$i] = $a_address;
+    }
+
+    return $a_import_addresses;
+
+  }
+
   public function fetchAll()
   {
     $stmt = $this->o_pdo->prepare("SELECT * FROM `adressen`");
@@ -47,7 +74,7 @@ class AddressRepository
   {
 
     $stmt = $this->o_pdo->prepare(
-        "INSERT INTO `adressen` (`id`, `vorname`, `nachname`, `strasse`, `plz`, `ort`) VALUES (:id, :vorname, :nachname, :strasse, :plz, :ort)"
+        "INSERT INTO `adressen` (`id`, `vorname`, `nachname`, `strasse`, `plz`, `ort`, `longitude`, `latitude`) VALUES (:id, :vorname, :nachname, :strasse, :plz, :ort, :longitude, :latitude)"
     );
     // Adressdaten in Datenbanktabelle einfügen
     $stmt->execute([
@@ -56,7 +83,9 @@ class AddressRepository
         'nachname' => $a_adresse['nachname'],
         'strasse' => $a_adresse['strasse'],
         'plz' => $a_adresse['plz'],
-        'ort' => $a_adresse['ort']
+        'ort' => $a_adresse['ort'],
+        'longitude' => $a_adresse['longitude'],
+        'latitude' => $a_adresse['latitude']
 
     ]);
   }
