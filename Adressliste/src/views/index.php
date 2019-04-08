@@ -52,22 +52,25 @@ if (isset($_POST['speichern'])){
 }
 
 if(isset($_POST['import'])){
+
     $a_files = $_POST['files'];
     $file = $a_files[0];
 
-    // Importieren von Adressdaten aus Spreadsheet
+    if (!empty($file)) {
 
-    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file);
-    $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-    $a_import_addresses = $o_addressRepository->transform_import_array($xls_data);
-    $nr = count($a_import_addresses); //number of rows
+        // Importieren von Adressdaten aus Spreadsheet
 
-    for($i=0; $i<$nr; $i++){
-        $a_adresse = $a_import_addresses[$i];
-        $a_adresse = $o_geocode->get_geocode($a_adresse); // Ermitteln des Geocodes
-        $o_addressRepository -> insertAddress($a_adresse); // Einfügen der Adressdaten in datenbanktabelle
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file);
+        $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $a_import_addresses = $o_addressRepository->transform_import_array($xls_data);
+        $nr = count($a_import_addresses); //number of rows
+
+        for ($i = 0; $i < $nr; $i++) {
+            $a_adresse = $a_import_addresses[$i];
+            $a_adresse = $o_geocode->get_geocode($a_adresse); // Ermitteln des Geocodes
+            $o_addressRepository->insertAddress($a_adresse); // Einfügen der Adressdaten in datenbanktabelle
+        }
     }
-
 }
 $a_adressen = $o_addressRepository->fetchAll(); // Abrufen der Adressdaten aus Datenbanktabelle
 

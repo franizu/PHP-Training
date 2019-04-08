@@ -104,9 +104,11 @@ class ListView {
 
         echo "<div>";
         echo "<form name='import_excel' method='POST' action='$action'>" ;
-        echo "<button name='import' type='submit'>Import</button>\n";
+
         echo "<input type=\"file\" id=\"files\" name= \"files[]\" multiple />";
         echo "<output id=\"list\" name='file'></output>";
+
+        echo "<button name='import' type='submit'>Import</button>\n";
 
         echo "<script>";
           echo "function handleFileSelect(evt) {";
