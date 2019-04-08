@@ -1,4 +1,10 @@
 <?php
+
+/* Dateiname: EditView.php
+* Autor: RS
+* PHP-Training: Erstellung einer Adressliste
+* Funktion: Erzeugen einer Ansicht zum Editieren der Adressdaten
+*/
 namespace View;
 
 class EditView{
@@ -11,15 +17,28 @@ class EditView{
     }
 
     public function output_form($a_addresses,$edit_id){
-        $o_address = $this->find_address_object_in_a_addresses($a_addresses,$edit_id);
+
+        $nr = sizeof($a_addresses);
+        $index = Array($nr);
+        for ($i=0;$i<$nr;$i++){
+            $index[$a_addresses[$i]->id] = $i;
+        }
+
+        $o_address = $a_addresses[$index[$edit_id]];
+
+        //$o_address = $this->find_address_object_in_a_addresses($a_addresses,$edit_id);
 
         echo "<br /><br />";
         echo "<form name='adresseingabe' method='POST' action='$this->action'>" ;
+        echo $this->get_form_fragment('ID','id',$o_address->id);
         echo $this->get_form_fragment('Vorname','vorname',$o_address->vorname);
         echo $this->get_form_fragment('Nachname','nachname',$o_address->nachname);
         echo $this->get_form_fragment('Straße/Hausnummer','strasse',$o_address->strasse);
         echo $this->get_form_fragment('Postleitzahl','plz',$o_address->plz);
         echo $this->get_form_fragment('Ort','ort',$o_address->ort);
+        echo $this->get_form_fragment('Länge','longitude',$o_address->longitude);
+        echo $this->get_form_fragment('Breite','latitude',$o_address->latitude);
+
         echo "<br />\n";
         echo "<button name='speichern' type='submit' value='$edit_id'>Eingaben absenden</button>\n";
         echo "</form";
@@ -36,15 +55,7 @@ class EditView{
 
     }
 
-    private function find_address_object_in_a_addresses($a_addresses,$edit_id){
-        foreach ($a_addresses as $o_address){
-            if ($o_address->id == $edit_id){
-                break;
 
-            }
-        }
-        return $o_address;
-    }
 }
 
 

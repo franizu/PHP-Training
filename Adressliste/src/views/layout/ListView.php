@@ -1,5 +1,9 @@
 <?php
-
+/* Dateiname: ListView.php
+* Autor: RS
+* PHP-Training: Erstellung einer Adressliste
+* Funktion: Darstellung der Adressdaten in einer Tabelle
+*/
 namespace View;
 
 //include __DIR__ . "/style.php";

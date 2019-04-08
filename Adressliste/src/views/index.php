@@ -36,18 +36,18 @@ $o_addressRepository = new \Model\AddressRepository($o_pdo);
 
 if (isset($_POST['senden'])){
     $a_adresse = $_POST;
-    $a_adresse = $o_geocode->get_geocode($a_adresse);
+    $a_adresse = $o_geocode->get_geocode($a_adresse);   // Ermitteln des Geocodes
     $o_addressRepository -> insertAddress($a_adresse); // Einfügen einer neuen Adresse in Dantenbanktabelle
 }
 if (isset($_POST['loeschen'])){
     $address_id = $_POST['loeschen'];
-    $o_addressRepository->deleteAddress($address_id);
+    $o_addressRepository->deleteAddress($address_id);   // löschen eines Eintrages in Datenbanktabelle
 }
 
 if (isset($_POST['speichern'])){
     $address_id = $_POST['speichern'];
     $a_adresse = $_POST['adresse'];
-    $o_addressRepository->updateAddress($address_id,$a_adresse);
+    $o_addressRepository->updateAddress($address_id,$a_adresse);    // Updaten eines Eintrages in Datenbanktabelle
 
 }
 
@@ -55,15 +55,17 @@ if(isset($_POST['import'])){
     $a_files = $_POST['files'];
     $file = $a_files[0];
 
+    // Importieren von Adressdaten aus Spreadsheet
+
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file);
     $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
     $a_import_addresses = $o_addressRepository->transform_import_array($xls_data);
     $nr = count($a_import_addresses); //number of rows
 
-    for($i=2; $i<=$nr; $i++){
+    for($i=0; $i<$nr; $i++){
         $a_adresse = $a_import_addresses[$i];
-        $a_adresse = $o_geocode->get_geocode($a_adresse);
-        $o_addressRepository -> insertAddress($a_adresse);
+        $a_adresse = $o_geocode->get_geocode($a_adresse); // Ermitteln des Geocodes
+        $o_addressRepository -> insertAddress($a_adresse); // Einfügen der Adressdaten in datenbanktabelle
     }
 
 }
@@ -74,7 +76,7 @@ function compare_vorname($o_address_a, $o_address_b)
     return strcasecmp($o_address_a->vorname, $o_address_b->vorname);
 }
 
-usort($a_adressen, "compare_vorname");
+usort($a_adressen, "compare_vorname"); // Sortieren der Adressdaten alphabetisch nach Vornamen
 
 
 
@@ -95,11 +97,11 @@ if (isset($_POST['bearbeiten'])) {
 }
 elseif (isset($_POST['karte'])){
     $address_id = $_POST['karte'];
-    $o_mapView ->output_map($address_id,$a_adressen);
+    $o_mapView ->output_map($address_id,$a_adressen); // Darstellung der Karte
 } else{
-    $o_listView->output_table($a_adressen);
-    $o_listView->output_form('POST','index.php');
-    $o_listView->output_import('index.php');
+    $o_listView->output_table($a_adressen); //Tabelle mit Adressdaten erzeugen
+    $o_listView->output_form('POST','index.php'); // Eingabeformular erzeugen
+    $o_listView->output_import('index.php'); // Importer erzeugen
 }
 
 output_footer(); // Funktion erzeugt einen Footer

@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="562b7d1c-ee93-4f9d-8690-513413082905" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Geocode/Geocode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/EditView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/ListView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout/output_map.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AddressModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AddressModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/AddressRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AddressRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/style.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/EditView.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/EditView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/ListView.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/ListView.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,20 +18,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="99" column="43" lean-forward="true" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+            <state relative-caret-position="451">
+              <caret line="103" column="65" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout/ListView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1691">
+              <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout/EditView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="2" lean-forward="true" selection-start-line="2" selection-end-line="6" selection-end-column="2" />
+              <folding>
+                <element signature="e#7#136#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout/MapView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="85">
+              <caret line="5" column="2" lean-forward="true" selection-start-line="1" selection-end-line="5" selection-end-column="2" />
+              <folding>
+                <element signature="e#6#164#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/AddressModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="85">
+              <caret line="5" column="2" selection-start-line="1" selection-end-line="5" selection-end-column="2" />
               <folding>
                 <element signature="e#6#164#0#PHP" expanded="true" />
               </folding>
@@ -59,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/AddressRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            <state relative-caret-position="1802">
+              <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -76,17 +92,17 @@
         <option value="$PROJECT_DIR$/views/layout/form.php" />
         <option value="$PROJECT_DIR$/views/layout/table.php" />
         <option value="$PROJECT_DIR$/views/layout/CompareView.php" />
-        <option value="$PROJECT_DIR$/views/layout/EditView.php" />
         <option value="$PROJECT_DIR$/Geocode/get_geocode.php" />
         <option value="$PROJECT_DIR$/views/layout/header.php" />
         <option value="$PROJECT_DIR$/views/layout/output_map.php" />
-        <option value="$PROJECT_DIR$/Model/AddressModel.php" />
         <option value="$PROJECT_DIR$/Geocode/Geocode.php" />
-        <option value="$PROJECT_DIR$/views/layout/MapView.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/Model/AddressRepository.php" />
-        <option value="$PROJECT_DIR$/views/layout/ListView.php" />
         <option value="$PROJECT_DIR$/views/layout/style.php" />
+        <option value="$PROJECT_DIR$/Model/AddressRepository.php" />
+        <option value="$PROJECT_DIR$/Model/AddressModel.php" />
+        <option value="$PROJECT_DIR$/views/layout/MapView.php" />
+        <option value="$PROJECT_DIR$/views/layout/EditView.php" />
+        <option value="$PROJECT_DIR$/views/layout/ListView.php" />
         <option value="$PROJECT_DIR$/views/index.php" />
       </list>
     </option>
@@ -218,12 +234,12 @@
       <workItem from="1554464557113" duration="12118000" />
       <workItem from="1554583371072" duration="20314000" />
       <workItem from="1554670341847" duration="1478000" />
-      <workItem from="1554707054983" duration="112000" />
+      <workItem from="1554707054983" duration="7012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78584000" />
+    <option name="totallyTimeSpent" value="85484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -306,37 +322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout/EditView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="12" column="55" lean-forward="true" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout/ListView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/AddressModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#6#164#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/AddressRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Geocode/Geocode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -344,17 +329,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.php">
+    <entry file="file://$PROJECT_DIR$/Model/AddressModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="99" column="43" lean-forward="true" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+        <state relative-caret-position="85">
+          <caret line="5" column="2" selection-start-line="1" selection-end-line="5" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#164#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout/EditView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="2" selection-end-line="6" selection-end-column="2" />
+          <folding>
+            <element signature="e#7#136#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout/MapView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="85">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="1" selection-end-line="5" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#164#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout/ListView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1691">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/AddressRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="103" column="65" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
         </state>
       </provider>
     </entry>
