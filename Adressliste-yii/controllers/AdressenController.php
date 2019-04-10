@@ -2,13 +2,14 @@
 
 namespace app\controllers;
 
-use maxh\Nominatim\Nominatim;
+
 use Yii;
 use app\models\Adressen;
 use app\models\AdressenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\adapter\GeocodeAdapter;
 
 /**
  * AdressenController implements the CRUD actions for Adressen model.
@@ -72,7 +73,9 @@ class AdressenController extends Controller
     public function actionCreate()
     {
         $model = new Adressen();
-        if ($model->load(Yii::$app->request->post()) && ($model = $this->get_geocode($model)) && $model->save()) {
+        $o_geocode = new GeocodeAdapter();
+
+        if ($model->load(Yii::$app->request->post()) && ($model = $o_geocode->get_geocode($model)) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -131,23 +134,5 @@ class AdressenController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    private function get_geocode($model){
 
-        $url = "http://nominatim.openstreetmap.org/";
-        $o_nominatim = new Nominatim($url);
-        $search = $o_nominatim->newSearch()
-            //->country('Germany')
-            ->city($model->ort)
-            ->postalCode($model->plz)
-            ->polygon('geojson')    //or 'kml', 'svg' and 'text'
-            ->street($model->strasse)
-            ->addressDetails();
-
-        $a_search_result = $o_nominatim->find($search);
-        $a_geocode = $a_search_result[0];
-        $model->longitude = $a_geocode['lon'];
-        $model->latitude = $a_geocode['lat'];
-
-        return $model;
-    }
 }
