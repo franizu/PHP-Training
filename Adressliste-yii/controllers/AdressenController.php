@@ -1,8 +1,9 @@
 <?php
 
 namespace app\controllers;
-
-
+use yii\web\UploadedFile;
+use app\models\UploadForm;
+use app\adapter\ImportAdapter;
 use Yii;
 use app\models\Adressen;
 use app\models\AdressenSearch;
@@ -44,6 +45,42 @@ class AdressenController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+
+
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->file && $model->validate()) {
+
+                $target_file = __DIR__ .'/../uploads/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->file->saveAs($target_file);
+
+
+                $o_importAdapter = new ImportAdapter();
+                $arr_o_address = $o_importAdapter->get_addresses($target_file);
+                foreach ($arr_o_address as $o_address ){
+
+                    $o_address->save(false);
+                }
+
+                return $this->redirect(['adressen/index']);
+
+            }
+        }
+
+
+
+
+
+
+
+        return $this->render('import', ['model' => $model]);
     }
 
     /**

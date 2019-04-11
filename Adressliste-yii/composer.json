@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.1.0",
         "maxh/php-nominatim": "2.2.0",
-        "sibilino/yii2-openlayers": "*"
+        "sibilino/yii2-openlayers": "*",
+        "phpoffice/phpspreadsheet": "1.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

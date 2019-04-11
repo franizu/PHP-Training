@@ -22,6 +22,24 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Karte anzeigen', ['adressen/show-map'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <p>
+        <?= Html::a('Importer', ['adressen/upload'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+
+    <?php
+
+       /* echo "<div>";
+        echo "<form action=\"index.php\" method=\"post\" enctype=\"multipart/form-data\"> ";
+        echo "Select image to upload:";
+        echo "<input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\">";
+        echo "<input type=\"submit\" value=\"Upload File\" name=\"submit\">";
+        echo "</form>";
+        echo "</div>";*/
+
+
+    ?>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
